@@ -43,11 +43,6 @@ class ModbusTlsFramer(ModbusFramer):
             return {"fcode": fcode}
         return {}
 
-    def recvPacket(self, size):
-        """Receive packet from the bus."""
-        sleep(0.5)
-        return super().recvPacket(size)
-
     def frameProcessIncomingPacket(self, _single, callback, _slave, tid=None):
         """Process new packet pattern."""
         # no slave id for Modbus Security Application Protocol

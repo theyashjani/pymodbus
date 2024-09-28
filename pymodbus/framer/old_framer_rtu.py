@@ -161,17 +161,6 @@ class ModbusRtuFramer(ModbusFramer):
             Log.debug("Frame advanced, resetting header!!")
             callback(result)  # defer or push to a thread?
 
-    def buildPacket(self, message):
-        """Create a ready to send modbus packet.
-
-        :param message: The populated request/response to send
-        """
-        packet = super().buildPacket(message)
-
-        # Ensure that transaction is actually the slave id for serial comms
-        message.transaction_id = 0
-        return packet
-
     def sendPacket(self, message: bytes) -> int:
         """Send packets on the bus with 3.5char delay between frames.
 
