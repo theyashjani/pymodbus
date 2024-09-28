@@ -1,5 +1,4 @@
 """RTU framer."""
-# pylint: disable=missing-type-doc
 import struct
 import time
 
@@ -69,7 +68,6 @@ class ModbusRtuFramer(ModbusFramer):
             fcode = int(data[1])
             return {"slave": uid, "fcode": fcode}
         return {}
-
 
     def frameProcessIncomingPacket(self, _single, callback, slave, tid=None):  # noqa: C901
         """Process new packet pattern."""

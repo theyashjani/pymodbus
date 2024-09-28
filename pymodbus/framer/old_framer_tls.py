@@ -1,6 +1,5 @@
 """TLS framer."""
 import struct
-from time import sleep
 
 from pymodbus.exceptions import (
     ModbusIOException,
